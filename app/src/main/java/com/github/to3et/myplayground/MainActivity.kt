@@ -3,7 +3,9 @@ package com.github.to3et.myplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -17,27 +19,40 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyPlaygroundTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                MainScreen(
+                    modifier = Modifier.fillMaxSize()
+                )
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MainScreen(
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colors.background
+    ) {
+        Column(
+            modifier = Modifier
+        ) {
+            Button(
+                onClick = {  }
+            ) {
+                Text("Navigation")
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     MyPlaygroundTheme {
-        Greeting("Android")
+        MainScreen(
+            modifier = Modifier.fillMaxSize()
+        )
     }
 }
