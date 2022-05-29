@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyPlayground</string>
+    <string name="label_menu">Menu</string>
 </resources>
