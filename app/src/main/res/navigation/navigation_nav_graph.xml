@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_nav_graph"
+    app:startDestination="@id/navigationFragment">
+
+    <fragment
+        android:id="@+id/navigationFragment"
+        android:name="com.github.to3et.myplayground.navigation.NavigationHomeFragment">
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+        <action
+            android:id="@+id/action_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.github.to3et.myplayground.navigation.FirstFragment">
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+        <action
+            android:id="@+id/action_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.github.to3et.myplayground.navigation.SecondFragment">
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+        <action
+            android:id="@+id/action_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.github.to3et.myplayground.navigation.ThirdFragment">
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_to_navigationFragment"
+        app:popUpTo="@id/navigation_nav_graph"
+        app:popUpToInclusive="false"
+        app:destination="@id/navigationFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:launchSingleTop="true" />
+
+</navigation>

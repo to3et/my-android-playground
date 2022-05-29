@@ -5,9 +5,23 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/menuFragment">
 
+    <include app:graph="@navigation/navigation_nav_graph" />
+
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.github.to3et.myplayground.feature.menu.MenuFragment"
-        android:label="@string/label_menu" />
+        android:label="@string/label_menu" >
+
+        <action
+            android:id="@+id/action_menuFragment_to_navigation_nav_graph"
+            app:destination="@id/navigation_nav_graph">
+
+            <argument
+                android:name="arg"
+                app:argType="string"
+                android:defaultValue='' />
+
+        </action>
+    </fragment>
 
 </navigation>

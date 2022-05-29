@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -17,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.findNavController
 import com.github.to3et.myplayground.ui.theme.MyPlaygroundTheme
 
 class MenuFragment : Fragment() {
@@ -31,7 +35,11 @@ class MenuFragment : Fragment() {
                 MyPlaygroundTheme {
                     MenuScreen(
                         modifier = Modifier.fillMaxSize(),
-                        onNavigationClick = {  }
+                        onNavigationClick = {
+                            val action =
+                                MenuFragmentDirections.actionMenuFragmentToNavigationNavGraph("from Menu")
+                            findNavController().navigate(action)
+                        }
                     )
                 }
             }
@@ -52,6 +60,10 @@ fun MenuScreen(
             modifier = Modifier,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text("Menu")
+            
+            Spacer(modifier = Modifier.height(8.dp))
+            
             Button(
                 onClick = onNavigationClick
             ) {
@@ -67,7 +79,7 @@ fun MenuScreenPreview() {
     MyPlaygroundTheme {
         MenuScreen(
             modifier = Modifier.fillMaxSize(),
-            onNavigationClick = {  }
+            onNavigationClick = { }
         )
     }
 }
