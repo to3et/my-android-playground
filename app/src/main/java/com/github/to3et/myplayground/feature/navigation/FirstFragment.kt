@@ -31,7 +31,7 @@ class FirstFragment : Fragment() {
                     NavigationScreen(
                         modifier = Modifier.fillMaxSize(),
                         screenName = "First",
-                        from = args.arg,
+                        from = args.from,
                         onNextClick = {
                             val action = FirstFragmentDirections.actionToSecondFragment("from First")
                             findNavController().navigate(action)

@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
                     MenuScreen(
                         modifier = Modifier.fillMaxSize(),
                         onNavigationClick = {
-                            val uri = Uri.parse("playground:///navigation?from=\"from Home\"")
+                            val uri = Uri.parse("playground:///navigation?from=from Home")
                             findNavController().navigate(uri)
                         }
                     )

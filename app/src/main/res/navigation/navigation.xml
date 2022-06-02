@@ -9,7 +9,7 @@
         android:name="com.github.to3et.myplayground.feature.navigation.FirstFragment">
         <deepLink app:uri="playground:///navigation?from={from}" />
         <argument
-            android:name="arg"
+            android:name="from"
             app:argType="string"
             android:defaultValue='' />
         <action
