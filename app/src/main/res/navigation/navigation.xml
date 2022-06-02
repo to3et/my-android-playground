@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.github.to3et.myplayground.feature.navigation.FirstFragment">
+        <deepLink app:uri="playground:///navigation?from={from}" />
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+        <action
+            android:id="@+id/action_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.github.to3et.myplayground.feature.navigation.SecondFragment">
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+        <action
+            android:id="@+id/action_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.github.to3et.myplayground.feature.navigation.ThirdFragment">
+        <argument
+            android:name="arg"
+            app:argType="string"
+            android:defaultValue='' />
+    </fragment>
+
+</navigation>

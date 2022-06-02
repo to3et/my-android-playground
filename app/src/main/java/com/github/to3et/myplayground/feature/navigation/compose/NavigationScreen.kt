@@ -1,4 +1,4 @@
-package com.github.to3et.myplayground.navigation.compose
+package com.github.to3et.myplayground.feature.navigation.compose
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,7 +16,7 @@ import com.github.to3et.myplayground.ui.theme.MyPlaygroundTheme
 fun NavigationScreen(
     modifier: Modifier = Modifier,
     screenName: String = "",
-    argName: String = "",
+    from: String = "",
     onNextClick: (() -> Unit)? = null,
     onBackClick: (() -> Unit)? = null,
     onHomeClick: (() -> Unit)? = null
@@ -29,7 +29,7 @@ fun NavigationScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Text(text = "Argument : $argName")
+        Text(text = "Argument : $from")
 
         onNextClick?.let {
             Button(

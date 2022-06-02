@@ -1,4 +1,4 @@
-package com.github.to3et.myplayground.navigation
+package com.github.to3et.myplayground.feature.navigation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,10 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.github.to3et.myplayground.navigation.compose.NavigationScreen
+import com.github.to3et.myplayground.feature.navigation.compose.NavigationScreen
 import com.github.to3et.myplayground.ui.theme.MyPlaygroundTheme
 
-class ThirdFragment : Fragment() {
+class SecondFragment : Fragment() {
 
     private val args: SecondFragmentArgs by navArgs()
 
@@ -30,16 +30,15 @@ class ThirdFragment : Fragment() {
                 MyPlaygroundTheme {
                     NavigationScreen(
                         modifier = Modifier.fillMaxSize(),
-                        screenName = "Third",
-                        argName = args.arg,
-                        onNextClick = null,
+                        screenName = "Second",
+                        from = args.arg,
+                        onNextClick = {
+                            val action = SecondFragmentDirections.actionToThirdFragment("from Second")
+                            findNavController().navigate(action)
+                        },
                         onBackClick = {
                             findNavController().popBackStack()
                         },
-                        onHomeClick = {
-                            val action = ThirdFragmentDirections.actionGlobalToNavigationFragment("From Third")
-                            findNavController().navigate(action)
-                        }
                     )
                 }
             }

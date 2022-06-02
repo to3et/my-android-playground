@@ -1,5 +1,6 @@
-package com.github.to3et.myplayground.feature.menu
+package com.github.to3et.myplayground.feature.home
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.findNavController
 import com.github.to3et.myplayground.ui.theme.MyPlaygroundTheme
 
-class MenuFragment : Fragment() {
+class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,9 +37,8 @@ class MenuFragment : Fragment() {
                     MenuScreen(
                         modifier = Modifier.fillMaxSize(),
                         onNavigationClick = {
-                            val action =
-                                MenuFragmentDirections.actionMenuFragmentToNavigationNavGraph("from Menu")
-                            findNavController().navigate(action)
+                            val uri = Uri.parse("playground:///navigation?from=\"from Home\"")
+                            findNavController().navigate(uri)
                         }
                     )
                 }
@@ -50,7 +50,7 @@ class MenuFragment : Fragment() {
 @Composable
 fun MenuScreen(
     modifier: Modifier = Modifier,
-    onNavigationClick: () -> Unit
+    onNavigationClick: () -> Unit,
 ) {
     Surface(
         modifier = modifier,
@@ -60,7 +60,7 @@ fun MenuScreen(
             modifier = Modifier,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Menu")
+            Text("Home")
             
             Spacer(modifier = Modifier.height(8.dp))
             
@@ -68,6 +68,14 @@ fun MenuScreen(
                 onClick = onNavigationClick
             ) {
                 Text("Navigation")
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = onNavigationClick
+            ) {
+                Text("Deep link Navigation")
             }
         }
     }
